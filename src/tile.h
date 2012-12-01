@@ -1,7 +1,10 @@
 // base tile class with basic state and rendering functions
-#include "ofPoint.h"
 #ifndef TILE_H
 #define TILE_H
+
+#include "ofPoint.h"
+#include "tile.h"
+
 
 class Tile {
 	

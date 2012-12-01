@@ -48,8 +48,8 @@ void Machine::setTile(int x, int y, Tile * tile_arg) {
 //draws all the tiles in the grid
 void Machine::drawAll() {
 	for(auto it = grid.begin(); it != grid.end(); it++) {
-		for(auto inner_it = grid.begin(); inner_it != grid.end(); inner_it++) {
-			inner_it->render();
+		for(auto inner_it = it->begin(); inner_it != it->end(); inner_it++) {
+			(*inner_it)->render();
 		}
 	}
 }
