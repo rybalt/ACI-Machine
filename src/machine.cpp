@@ -18,6 +18,11 @@ Machine::Machine(double x_offset_, double y_offset_, double width_, double heigh
 	// determine size of a single tile by removing buffer space from machine size and dividing whats left
 	tile_width  = (width -  (tile_buffer * grid_width-1))  / grid_width;
 	tile_height = (height - (tile_buffer * grid_height-1)) / grid_height;
+	
+	cout << "tile_height " << tile_height; 
+	cout << "tile_width " << tile_width; 
+
+	fillWithDummy();
 }
 
 // fills the machine with a grid of dummy tiles
@@ -30,14 +35,16 @@ void Machine::fillWithDummy() {
 		//loop for each element in the row
 		for(int x = 0; x < grid_width; x++) {
 			Tile * tmp = new DummyTile;
+			cout << "x: " << x_offset+x*(tile_buffer+tile_width) << " y: " << y_offset+y*(tile_buffer+tile_height) << "\n";
 			tmp->setPosition(x_offset+x*(tile_buffer+tile_width), y_offset+y*(tile_buffer+tile_height));
 			tmp->setWidth(tile_width);
 			tmp->setHeight(tile_height);
 			row.push_back(tmp);
 		}
-
+		cout << "row size: " << row.size() << "\n";
 		grid.push_back(row);
 	}
+	cout << "grid size" << grid.size();
 }
 
 //sets a tile in the grid at x,y to be tile_arg
