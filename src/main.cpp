@@ -5,8 +5,6 @@
 
 //========================================================================
 int main( ){
-	
-	DummyTile t;
 
     ofAppGlutWindow window;
 	ofSetupOpenGL(&window, 1024,768, OF_WINDOW);			// <-------- setup the GL context
