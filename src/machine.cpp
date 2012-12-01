@@ -1,6 +1,6 @@
 #include "machine.h"
 
-Machine::Machine(float x_offset_, float y_offset_, float width_, float height_, float tile_buffer_, int grid_width_, int grid_height_) {
+Machine::Machine(double x_offset_, double y_offset_, double width_, double height_, double tile_buffer_, int grid_width_, int grid_height_) {
 
 	//drawing dimensions of overall machine
 	x_offset = x_offset_;
@@ -37,5 +37,19 @@ void Machine::fillWithDummy() {
 		}
 
 		grid.push_back(row);
+	}
+}
+
+//sets a tile in the grid at x,y to be tile_arg
+void Machine::setTile(int x, int y, Tile * tile_arg) {
+	grid[x][y] = tile_arg;
+}
+
+//draws all the tiles in the grid
+void Machine::drawAll() {
+	for(auto it = grid.begin(); it != grid.end(); it++) {
+		for(auto inner_it = grid.begin(); inner_it != grid.end(); inner_it++) {
+			inner_it->render();
+		}
 	}
 }
