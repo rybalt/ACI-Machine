@@ -1,9 +1,12 @@
 #include "ofMain.h"
 #include "testApp.h"
 #include "ofAppGlutWindow.h"
+#include "tile.h"
 
 //========================================================================
 int main( ){
+	
+	DummyTile t;
 
     ofAppGlutWindow window;
 	ofSetupOpenGL(&window, 1024,768, OF_WINDOW);			// <-------- setup the GL context
