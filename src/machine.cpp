@@ -1,6 +1,7 @@
 #include "machine.h"
+#include "snake.h"
 
-Machine::Machine(double x_offset_, double y_offset_, double width_, double height_, double tile_buffer_, int grid_width_, int grid_height_) {
+Machine::Machine(float x_offset_, float y_offset_, float width_, float height_, float tile_buffer_, int grid_width_, int grid_height_) {
 
 	//drawing dimensions of overall machine
 	x_offset = x_offset_;
@@ -22,7 +23,10 @@ Machine::Machine(double x_offset_, double y_offset_, double width_, double heigh
 	cout << "tile_height " << tile_height; 
 	cout << "tile_width " << tile_width; 
 
+	frame_skip=0;
+
 	fillWithDummy();
+	generateSnakes(10);
 }
 
 // fills the machine with a grid of dummy tiles
@@ -52,11 +56,32 @@ void Machine::setTile(int x, int y, Tile * tile_arg) {
 	grid[x][y] = tile_arg;
 }
 
+void Machine::generateSnakes(int count) {
+	for(int i = 0; i < count; i++) {
+		snakes.push_back(Snake(rand()%1000,rand()%1000,0,0,255,2.5));
+	}
+}
+
+//machine update, updates contained snakes
+void Machine::update() {
+	frame_skip-=1;
+	if(frame_skip <=0) {
+		frame_skip = 10;
+		for(auto it = snakes.begin(); it != snakes.end(); it++) {
+			it->update();
+		}
+	}
+}
+
 //draws all the tiles in the grid
 void Machine::drawAll() {
 	for(auto it = grid.begin(); it != grid.end(); it++) {
 		for(auto inner_it = it->begin(); inner_it != it->end(); inner_it++) {
 			(*inner_it)->render();
 		}
+	}
+	
+	for(auto it = snakes.begin(); it != snakes.end(); it++) {
+		it->draw();
 	}
 }

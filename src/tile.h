@@ -10,8 +10,8 @@ class Tile {
 	
 public:
 	//Constructors
-	Tile(double x, double y, double w, double h):pos(x,y),width(w),height(h){}
-	Tile(ofPoint p, double w, double h):pos(p),width(w),height(h){}
+	Tile(float x, float y, float w, float h):pos(x,y),width(w),height(h){}
+	Tile(ofPoint p, float w, float h):pos(p),width(w),height(h){}
 	Tile(){};
 	
 public:
@@ -25,22 +25,22 @@ public:
 	ofPoint getHeight() const{return height;}
 
 	//setters
-	void setPosition(double x, double y);
-	void setWidth(double w);
-	void setHeight(double h);
+	void setPosition(float x, float y);
+	void setWidth(float w);
+	void setHeight(float h);
 	
 public:
 	~Tile(){}
 	
 protected:
 	ofPoint pos;
-	double width;
-	double height;
+	float width;
+	float height;
 };
 
 class DummyTile: public Tile{
 public:
-	DummyTile(double x, double y, double w, double h):Tile(x,y,w,h){}
+	DummyTile(float x, float y, float w, float h):Tile(x,y,w,h){}
 	DummyTile() {}
 	void render();
 };

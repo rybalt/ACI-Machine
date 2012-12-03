@@ -2,18 +2,18 @@
 #include "ofGraphics.h"
 
 void DummyTile::render(){
-	ofSetColor(255,0,255);
+	ofSetColor(255,255,255);
 	ofRect(pos,width,height);
 }
 
-void Tile::setPosition(double x, double y) {
+void Tile::setPosition(float x, float y) {
 	pos = ofPoint(x,y);
 }
 
-void Tile::setWidth(double w) {
+void Tile::setWidth(float w) {
 	width = w;
 }
 
-void Tile::setHeight(double h) {
+void Tile::setHeight(float h) {
 	height = h;
 }
