@@ -23,11 +23,16 @@ public:
 	ofPoint getPosition() const {return pos;}
 	ofPoint getWidth() const{return width;}
 	ofPoint getHeight() const{return height;}
+	
+	float * getOrigPoints() const{return origPoints;}
+	float * getMappedPoints() const{return mappedPoints;}
 
 	//setters
 	void setPosition(float x, float y);
 	void setWidth(float w);
 	void setHeight(float h);
+	void setOrigPoints(float * orig);
+	void setMappedPoints(float * mapped);
 	
 public:
 	~Tile(){}
@@ -36,6 +41,8 @@ protected:
 	ofPoint pos;
 	float width;
 	float height;
+	float * origPoints;
+	float * mappedPoints;
 };
 
 class DummyTile: public Tile{

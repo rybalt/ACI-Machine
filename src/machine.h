@@ -3,6 +3,8 @@
 #define MACHINE_H
 #include "tile.h"
 #include "snake.h"
+#include "ofxMpplr.h"
+#include "ofxXmlSettings.h"
 #include <vector>
 using namespace std;
 
@@ -25,9 +27,12 @@ public:
 
 	//sets a tile in the grid at x,y to be tile_arg
 	void setTile(int x, int y, Tile * tile_arg);
-
+	
 	//generates snakes/tron light cycles line effect overlay
 	void generateSnakes(int count);
+
+	//generates xml projection mapping
+	void generateMpplrXML();
 
 	//draws all the tiles in the grid
 	void drawAll();

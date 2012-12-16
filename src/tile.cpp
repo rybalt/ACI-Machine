@@ -17,3 +17,10 @@ void Tile::setWidth(float w) {
 void Tile::setHeight(float h) {
 	height = h;
 }
+
+void Tile::setOrigPoints(float * orig) {
+	origPoints = orig;
+}
+void Tile::setMappedPoints(float * mapped) {
+	mappedPoints = mapped;
+}
